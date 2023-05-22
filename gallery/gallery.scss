@@ -1,0 +1,639 @@
+@import "../siteground/adapt.css";
+@import "../siteground/adapt.scss";
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Ysabeau:ital@1&display=swap');
+#container {
+    .menu__btn {
+        z-index: 400;
+    }
+    box-sizing: content-box;
+    margin: 0 auto;
+    .particle {
+        position: absolute;
+        border-radius: 50%;
+    }
+    @for $i from 1 through 30 {
+        @keyframes particle-animation-#{$i} {
+            100% {
+                transform: translate3d((random(90) * 1vw), (random(90) * 1vh), (random(100) * 1px));
+            }
+        }
+        .particle:nth-child(#{$i}) {
+            animation: particle-animation-#{$i} 60s infinite;
+            $size: random(10) + 10 + px;
+            opacity: random(100)/100;
+            height: $size;
+            width: $size;
+            animation-delay: -$i * .2s;
+            transform: translate3d((random(90) * 1vw), (random(90) * 1vh), (random(100) * 1px));
+            background: hsl(random(360), 70%, 50%);
+        }
+    }
+    #scrollShow {
+        position: fixed;
+        cursor: pointer;
+        right: 5%;
+        width: 40px;
+        height: 40px;
+        bottom: 5%;
+        z-index: 30;
+        transition: all 0.5s ease-in-out;
+        &:hover {
+            transform: scale(0.9, 0.9);
+        }
+    }
+    .isShowBtn {
+        opacity: 1;
+    }
+    .isShowBtn_hide {
+        opacity: 0;
+    }
+    box-sizing: border-box;
+    margin: 0 auto;
+    cursor: default;
+    a {
+        text-decoration: none;
+        color: white;
+    }
+    .header-menu {
+        display: grid;
+        grid-template-columns: 1fr 4fr 1fr 1fr 1fr 1fr 1fr 1fr;
+        grid-template-rows: 100px 550px 100px;
+        align-items: center;
+        background-color: var(--e-global-color-32922f5);
+        font-family: "Kanit", sans-serif;
+        background: url(image/background.png)center;
+        background-size: cover;
+        background-attachment: fixed;
+        @include breakpoint (xsm) {
+            display: flex;
+            flex-direction: column;
+            grid-row-gap: 6px;
+            nav {
+                display: none;
+            }
+        }
+        @include breakpoint (lg) {
+            grid-template-columns: 20px 150px 1fr 1fr 1fr 1fr 1fr 1fr;
+        }
+        .head-about-us {
+            grid-row: 2;
+            grid-column: 1/9;
+            justify-self: center;
+            font-size: 60px;
+            color: white;
+            font-weight: var(--e-global-typography-583e54c-font-weight);
+            letter-spacing: 1px;
+            .switching {
+                font-size: 15px;
+                font-weight: 500;
+                text-transform: uppercase;
+                font-family: 'Oswald', sans-serif;
+                text-align: center;
+                a {
+                    transition: .4s ease-in-out;
+                    &:hover {
+                        color: rgb(0, 162, 255);
+                    }
+                }
+                .blue {
+                    color: #ff00eb;
+                }
+            }
+        }
+        a {
+            font-size: 14px;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+        .edem-head {
+            grid-row: 1;
+            grid-column: 2;
+        }
+        .home-head {
+            grid-row: 1;
+            grid-column: 3;
+            justify-self: center;
+            a {
+                transition: .3s ease-in-out;
+                &:hover {
+                    border-bottom: 2px solid #ff00eb;
+                }
+            }
+        }
+        .about_us-head {
+            grid-row: 1;
+            grid-column: 4;
+            justify-self: center;
+            a {
+                transition: .3s ease-in-out;
+                &:hover {
+                    border-bottom: 2px solid #ff00eb;
+                }
+            }
+        }
+        .gallery-head {
+            grid-row: 1;
+            grid-column: 5;
+            justify-self: center;
+            a {
+                transition: .3s ease-in-out;
+                &:hover {
+                    border-bottom: 2px solid #ff00eb;
+                }
+            }
+        }
+        .event-head {
+            grid-row: 1;
+            grid-column: 6;
+            justify-self: center;
+            a {
+                transition: .3s ease-in-out;
+                &:hover {
+                    border-bottom: 2px solid #ff00eb;
+                }
+            }
+        }
+        .news-head {
+            grid-row: 1;
+            grid-column: 7;
+            justify-self: center;
+            a {
+                transition: .3s ease-in-out;
+                &:hover {
+                    border-bottom: 2px solid #ff00eb;
+                }
+            }
+        }
+        .contact-head {
+            grid-row: 1;
+            grid-column: 8;
+            justify-self: center;
+            a {
+                transition: .3s ease-in-out;
+                &:hover {
+                    border-bottom: 2px solid #ff00eb;
+                }
+            }
+        }
+        .title-text {
+            grid-row: 2;
+            grid-column: 1/9;
+            justify-self: center;
+            .upper-text {
+                font-size: 60px;
+                color: white;
+                font-weight: bold;
+                font-family: 'Oswald', sans-serif;
+            }
+            .fon-text {
+                color: yellow;
+                font-family: 'Oswald', sans-serif;
+                font-weight: bold;
+                text-align: center;
+                font-size: 30px;
+            }
+            .switch {
+                text-align: center;
+                color: white;
+                a {
+                    transition: .4s ease-in-out;
+                    &:hover {
+                        color: rgb(0, 162, 255);
+                    }
+                }
+                .color {
+                    font-size: 14px;
+                    font-weight: bold;
+                    text-transform: uppercase;
+                    color: #ff00eb;
+                }
+            }
+        }
+    }
+    .content-1 {
+        display: grid;
+        grid-template-columns: 350px 400px 450px;
+        grid-template-rows: 250px 40px 250px 60px 250px 250px 50px;
+        justify-content: space-around;
+        grid-row-gap: 20px;
+        background-color: black;
+        @include breakpoint (md) {
+            grid-template-columns: 550px;
+            grid-template-rows: 450px 450px 450px 450px 450px 450px 450px 450px 450px 450px;
+            grid-row-gap: 20px;
+        }
+        @include breakpoint (xl) {
+            grid-template-columns: 550px;
+            grid-template-rows: 650px 650px 650px 650px 650px 650px 650px 650px 650px 650px;
+            grid-row-gap: 15px;
+        }
+        @include breakpoint (ssm) {
+            grid-template-columns: 350px;
+        }
+        .img-text {
+            color: white;
+            text-align: center;
+            opacity: 0;
+            width: 100%;
+            height: 100%;
+            align-items: center;
+            transition: 0.5s ease-in-out;
+            background-color: rgba(0, 0, 0, 0.432);
+            font-family: 'Oswald', sans-serif;
+            letter-spacing: 1px;
+            &:hover {
+                opacity: 100%;
+            }
+            .uppertxt {
+                font-size: 40px;
+                font-weight: bold;
+                text-transform: uppercase;
+            }
+        }
+        .img-1 {
+            grid-row: 1;
+            grid-column: 1;
+            background: url(image/1.png) center;
+            background-size: cover;
+            width: 100%;
+            height: 100%;
+            @include breakpoint (md) {
+                grid-row: 1;
+                grid-column: 1;
+            }
+            @include breakpoint (xl) {
+                grid-row: 1;
+                grid-column: 1;
+            }
+        }
+        .img-2 {
+            grid-row: 2/4;
+            grid-column: 1;
+            background: url(image/4.png) center;
+            background-size: cover;
+            width: 100%;
+            height: 100%;
+            @include breakpoint (md) {
+                grid-row: 2;
+                grid-column: 1;
+            }
+            @include breakpoint (xl) {
+                grid-row: 2;
+                grid-column: 1;
+            }
+        }
+        .img-3 {
+            grid-row: 4/7;
+            grid-column: 1;
+            background: url(image/6.png) center;
+            background-size: cover;
+            width: 100%;
+            height: 100%;
+            @include breakpoint (md) {
+                grid-row: 3;
+                grid-column: 1;
+            }
+            @include breakpoint (xl) {
+                grid-row: 3;
+                grid-column: 1;
+            }
+        }
+        .img-4 {
+            grid-row: 1/3;
+            grid-column: 2;
+            background: url(image/2.png) center;
+            background-size: cover;
+            width: 100%;
+            height: 100%;
+            @include breakpoint (md) {
+                grid-row: 4;
+                grid-column: 1;
+            }
+            @include breakpoint (xl) {
+                grid-row: 4;
+                grid-column: 1;
+            }
+        }
+        .img-5 {
+            grid-row: 3/5;
+            grid-column: 2;
+            background: url(image/5.png) center;
+            background-size: cover;
+            width: 100%;
+            height: 100%;
+            @include breakpoint (md) {
+                grid-row: 5;
+                grid-column: 1;
+            }
+            @include breakpoint (xl) {
+                grid-row: 5;
+                grid-column: 1;
+            }
+        }
+        .img-6 {
+            grid-row: 4/6;
+            grid-column: 3;
+            background: url(image/7.png) center;
+            background-size: cover;
+            width: 100%;
+            height: 100%;
+            @include breakpoint (md) {
+                grid-row: 6;
+                grid-column: 1;
+            }
+            @include breakpoint (xl) {
+                grid-row: 6;
+                grid-column: 1;
+            }
+        }
+        .img-7 {
+            grid-row: 5;
+            grid-column: 2;
+            background: url(image/10.png) center;
+            background-size: cover;
+            width: 100%;
+            height: 100%;
+            @include breakpoint (md) {
+                grid-row: 7;
+                grid-column: 1;
+            }
+            @include breakpoint (xl) {
+                grid-row: 7;
+                grid-column: 1;
+            }
+        }
+        .img-8 {
+            grid-row: 6;
+            grid-column: 2;
+            background: url(image/9.png) center;
+            background-size: cover;
+            width: 100%;
+            height: 100%;
+            @include breakpoint (md) {
+                grid-row: 8;
+                grid-column: 1;
+            }
+            @include breakpoint (xl) {
+                grid-row: 8;
+                grid-column: 1;
+            }
+        }
+        .img-9 {
+            grid-row: 1/4;
+            grid-column: 3;
+            background: url(image/3.png) center;
+            background-size: cover;
+            width: 100%;
+            height: 100%;
+            @include breakpoint (md) {
+                grid-row: 9;
+                grid-column: 1;
+            }
+            @include breakpoint (xl) {
+                grid-row: 9;
+                grid-column: 1;
+            }
+        }
+        .img-10 {
+            grid-row: 6;
+            grid-column: 3;
+            background: url(image/8.png) center;
+            background-size: cover;
+            width: 100%;
+            height: 100%;
+            @include breakpoint (md) {
+                grid-row: 10;
+                grid-column: 1;
+            }
+            @include breakpoint (xl) {
+                grid-row: 10;
+                grid-column: 1;
+            }
+        }
+    }
+    .content-2 {
+        display: grid;
+        grid-template-columns: 400px 400px 400px;
+        grid-template-rows: 100px 350px 100px;
+        justify-content: space-around;
+        background-color: black;
+        @include breakpoint (md) {
+            grid-template-columns: 550px;
+            grid-template-rows: 100px 500px 500px 500px 30px;
+            grid-row-gap: 30px;
+            text-align: center;
+        }
+        @include breakpoint (lg) {
+            grid-template-columns: 550px;
+            grid-template-rows: 100px 500px 500px 500px 30px;
+            grid-row-gap: 30px;
+            text-align: center;
+        }
+        @include breakpoint (ssm) {
+            grid-template-columns: 350px;
+            grid-template-rows: 70px 350px 350px 350px 30px;
+            grid-row-gap: 20px;
+            text-align: center;
+        }
+        .popular {
+            grid-row: 1;
+            grid-column: 1;
+            justify-self: center;
+            align-self: center;
+            font-size: 50px;
+            font-weight: bold;
+            text-transform: uppercase;
+            font-family: 'Oswald', sans-serif;
+            color: white;
+        }
+        .video-content1 {
+            grid-row: 2;
+            grid-column: 1;
+            @include breakpoint (md) {
+                grid-row: 2;
+                grid-column: 1;
+            }
+            @include breakpoint (lg) {
+                grid-row: 2;
+                grid-column: 1;
+            }
+            #video-col {
+                width: 100%;
+                height: 100%;
+            }
+        }
+        .video-content2 {
+            grid-row: 2;
+            grid-column: 2;
+            @include breakpoint (md) {
+                grid-row: 3;
+                grid-column: 1;
+            }
+            @include breakpoint (lg) {
+                grid-row: 3;
+                grid-column: 1;
+            }
+            #video-col2 {
+                width: 100%;
+                height: 100%;
+            }
+        }
+        .video-content3 {
+            grid-row: 2;
+            grid-column: 3;
+            @include breakpoint (md) {
+                grid-row: 4;
+                grid-column: 1;
+            }
+            @include breakpoint (lg) {
+                grid-row: 4;
+                grid-column: 1;
+            }
+            #video-col3 {
+                width: 100%;
+                height: 100%;
+            }
+        }
+        .btn_block {
+            display: flex;
+            grid-row: 3;
+            grid-column: 1;
+            justify-content: space-between;
+        }
+        .btn_block1 {
+            display: flex;
+            grid-row: 3;
+            grid-column: 1;
+            justify-content: space-between;
+        }
+        .btn_block2 {
+            display: flex;
+            grid-row: 3;
+            grid-column: 1;
+            justify-content: space-between;
+        }
+        .btn-ok {
+            width: 140px;
+            height: 35px;
+            text-align: center;
+            font-weight: bold;
+            color: white;
+            background: linear-gradient(to left top, #ff00eb, #c958ff, #8e75ff, #5185fe, #128deb);
+            &:hover {
+                background: linear-gradient(to right top, #ff00eb, #c958ff, #8e75ff, #5185fe, #128deb);
+            }
+        }
+        .btn-stop {
+            width: 140px;
+            height: 35px;
+            text-align: center;
+            font-weight: bold;
+            color: white;
+            background: linear-gradient(to left top, #ff00eb, #c958ff, #8e75ff, #5185fe, #128deb);
+            &:hover {
+                background: linear-gradient(to right top, #ff00eb, #c958ff, #8e75ff, #5185fe, #128deb);
+            }
+        }
+    }
+}
+
+.footer {
+    position: relative;
+    background-color: black;
+    display: grid;
+    grid-template-rows: 70px;
+    background-color: #100726;
+    align-items: center;
+    font-family: 'Kanit', sans-serif;
+    border-top: 2px solid gray;
+    @include breakpoint (md) {
+        display: flex;
+        flex-direction: column-reverse;
+        grid-row-gap: 25px;
+    }
+    .logo-bottom {
+        justify-self: center;
+        @include breakpoint (ssm) {
+            display: none;
+        }
+        @include breakpoint (md) {
+            display: none;
+        }
+    }
+    .text-footer {
+        grid-row: 1;
+        grid-column: 3;
+        text-align: center;
+        font-size: 18px;
+        color: white;
+        font-weight: 300;
+    }
+    .logo-footer {
+        text-align: center;
+    }
+    #youtube {
+        width: 20px;
+        height: 20px;
+        fill: white;
+        margin-left: 15px;
+        transition: all 0.5s ease-in-out;
+        &:hover {
+            fill: #ff00eb;
+            transform: scale(1.2, 1.2);
+        }
+    }
+    #soundclound {
+        width: 20px;
+        height: 20px;
+        fill: white;
+        margin-left: 15px;
+        transition: all 0.5s ease-in-out;
+        &:hover {
+            fill: #ff00eb;
+            transform: scale(1.2, 1.2);
+        }
+    }
+    #Spotify {
+        width: 20px;
+        height: 20px;
+        fill: white;
+        margin-left: 15px;
+        transition: all 0.5s ease-in-out;
+        &:hover {
+            fill: #ff00eb;
+            transform: scale(1.2, 1.2);
+        }
+    }
+    #dribble {
+        width: 20px;
+        height: 20px;
+        fill: white;
+        transition: all 0.5s ease-in-out;
+        &:hover {
+            fill: #ff00eb;
+            transform: scale(1.2, 1.2);
+        }
+    }
+    .title-text {
+        grid-row: 2;
+        grid-column: 1/9;
+    }
+}
+
+.hamburger-menu {
+    display: none;
+    @include breakpoint (xsm) {
+        display: block;
+    }
+    a {
+        color: white;
+    }
+}
+
+.blockmp4 {
+    width: 100%;
+    position: absolute;
+    left: 0px;
+    bottom: 0;
+}

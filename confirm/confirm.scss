@@ -1,0 +1,321 @@
+@import "../siteground/adapt.css";
+@import "../siteground/adapt.scss";
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Ysabeau:ital@1&display=swap');
+#container {
+    animation: glava 1.5s ease-in-out;
+    .particle {
+        position: absolute;
+        border-radius: 50%;
+    }
+    height: 100%;
+    width: 100%;
+    @for $i from 1 through 30 {
+        @keyframes particle-animation-#{$i} {
+            100% {
+                transform: translate3d((random(90) * 1vw), (random(90) * 1vh), (random(100) * 1px));
+            }
+        }
+        .particle:nth-child(#{$i}) {
+            animation: particle-animation-#{$i} 60s infinite;
+            $size: random(10) + 10 + px;
+            opacity: random(100)/100;
+            height: $size;
+            width: $size;
+            animation-delay: -$i * .2s;
+            transform: translate3d((random(90) * 1vw), (random(90) * 1vh), (random(100) * 1px));
+            background: hsl(random(360), 70%, 50%);
+        }
+    }
+    box-sizing: content-box;
+    #scrollShow {
+        position: fixed;
+        cursor: pointer;
+        right: 5%;
+        width: 40px;
+        height: 40px;
+        bottom: 5%;
+        z-index: 20;
+        transition: all 0.5s ease-in-out;
+        &:hover {
+            transform: scale(0.9, 0.9);
+        }
+    }
+    .isShowBtn {
+        opacity: 1;
+    }
+    .isShowBtn_hide {
+        opacity: 0;
+    }
+    box-sizing: border-box;
+    margin: 0 auto;
+    cursor: default;
+    a {
+        text-decoration: none;
+        color: white;
+    }
+    .header-menu {
+        display: grid;
+        grid-template-columns: 1fr 4fr 1fr 1fr 1fr 1fr 1fr 1fr;
+        grid-template-rows: 100px 100px 50px 150px 150px 100px 100px;
+        align-items: center;
+        background: url(image/background.jpg) center;
+        background-size: cover;
+        background-repeat: no-repeat;
+        font-family: 'Kanit', sans-serif;
+        @include breakpoint (xsl) {
+            grid-template-columns: 20px 150px 1fr 1fr 1fr 1fr 1fr 1fr;
+            margin: 0 auto;
+        }
+        @include breakpoint (xsm) {
+            display: flex;
+            flex-direction: column;
+            grid-row-gap: 6px;
+            nav {
+                display: none;
+            }
+        }
+        a {
+            font-size: 15px;
+            font-weight: 500;
+            text-transform: uppercase;
+        }
+        .edem-head {
+            grid-column: 2;
+            z-index: 10;
+        }
+        .home-head {
+            grid-column: 3;
+            justify-self: center;
+            z-index: 10;
+            transition: .2s ease-in-out;
+            &:hover {
+                border-bottom: 2px solid #ff00eb;
+            }
+        }
+        .about_us-head {
+            grid-column: 4;
+            justify-self: center;
+            z-index: 10;
+            transition: .2s ease-in-out;
+            &:hover {
+                border-bottom: 2px solid #ff00eb;
+            }
+        }
+        .gallery-head {
+            grid-column: 5;
+            justify-self: center;
+            z-index: 10;
+            transition: .2s ease-in-out;
+            &:hover {
+                border-bottom: 2px solid #ff00eb;
+            }
+        }
+        .event-head {
+            grid-column: 6;
+            justify-self: center;
+            z-index: 10;
+            transition: .2s ease-in-out;
+            &:hover {
+                border-bottom: 2px solid #ff00eb;
+            }
+        }
+        .news-head {
+            justify-self: center;
+            z-index: 10;
+            transition: .2s ease-in-out;
+            &:hover {
+                border-bottom: 2px solid #ff00eb;
+            }
+        }
+        .contact-head {
+            justify-self: center;
+            transition: .2s ease-in-out;
+            &:hover {
+                border-bottom: 2px solid #ff00eb;
+            }
+        }
+        .content-confirm {
+            display: grid;
+            grid-template-columns: 450px 450px;
+            grid-template-rows: 250px 250px;
+            grid-row: 3/7;
+            grid-column: 2/8;
+            animation: with 1.7s both infinite;
+            justify-content: space-around;
+            @include breakpoint (xl) {
+                margin: 0 auto;
+            }
+            @include breakpoint (lg) {
+                display: flex;
+                flex-direction: column;
+                margin: 0 auto;
+            }
+            @include breakpoint (xl) {}
+            .confirm_content {
+                grid-row: 1/3;
+                grid-column: 2;
+                align-self: center;
+                .img-confirm {
+                    width: 100%;
+                    height: 100%;
+                    box-shadow: 10px 10px 20px blue;
+                    @include breakpoint (xl) {
+                        width: 90%;
+                        height: 90%;
+                    }
+                    @include breakpoint (lg) {
+                        width: 100%;
+                        height: 100%;
+                    }
+                }
+            }
+            .blocktxt {
+                grid-row: 1/3;
+                align-self: center;
+                justify-self: center;
+                font-weight: bold;
+                font-size: 20px;
+                .txtconfirm {
+                    @include breakpoint (md) {
+                        text-align: center;
+                        font-size: 40px;
+                    }
+                    text-shadow: 0 0 50px rgb(2,
+                    179,
+                    2);
+                }
+                color: rgb(2,
+                179,
+                2);
+            }
+        }
+    }
+}
+
+.footer {
+    position: relative;
+    background-color: black;
+    display: grid;
+    grid-template-rows: 70px;
+    background-color: #100726;
+    align-items: center;
+    font-family: 'Kanit', sans-serif;
+    border-top: 2px solid gray;
+    @include breakpoint (md) {
+        display: flex;
+        flex-direction: column-reverse;
+        grid-row-gap: 25px;
+    }
+    .logo-bottom {
+        justify-self: center;
+        @include breakpoint (ssm) {
+            display: none;
+        }
+        @include breakpoint (md) {
+            display: none;
+        }
+    }
+    .text-footer {
+        grid-row: 1;
+        grid-column: 3;
+        text-align: center;
+        font-size: 18px;
+        color: white;
+        font-weight: 300;
+    }
+    .logo-footer {
+        text-align: center;
+    }
+    #youtube {
+        width: 20px;
+        height: 20px;
+        fill: white;
+        margin-left: 15px;
+        transition: all 0.5s ease-in-out;
+        &:hover {
+            fill: #ff00eb;
+            transform: scale(1.2, 1.2);
+        }
+    }
+    #soundclound {
+        width: 20px;
+        height: 20px;
+        fill: white;
+        margin-left: 15px;
+        transition: all 0.5s ease-in-out;
+        &:hover {
+            fill: #ff00eb;
+            transform: scale(1.2, 1.2);
+        }
+    }
+    #Spotify {
+        width: 20px;
+        height: 20px;
+        fill: white;
+        margin-left: 15px;
+        transition: all 0.5s ease-in-out;
+        &:hover {
+            fill: #ff00eb;
+            transform: scale(1.2, 1.2);
+        }
+    }
+    #dribble {
+        width: 20px;
+        height: 20px;
+        fill: white;
+        transition: all 0.5s ease-in-out;
+        &:hover {
+            fill: #ff00eb;
+            transform: scale(1.2, 1.2);
+        }
+    }
+    .title-text {
+        grid-row: 2;
+        grid-column: 1/9;
+    }
+}
+
+@keyframes with {
+    0% {
+        box-shadow: 0 0 10px blue;
+    }
+    10% {
+        box-shadow: 0 0 20px blue;
+    }
+    20% {
+        box-shadow: 0 0 10px blue;
+    }
+    30% {
+        box-shadow: 0 0 20px blue;
+    }
+    40% {
+        box-shadow: 0 0 20px blue;
+    }
+    50% {
+        box-shadow: 0 0 10px blue;
+    }
+    60% {
+        box-shadow: 0 0 20px blue;
+    }
+    100% {
+        box-shadow: 0 0 30px blue;
+    }
+}
+
+.blockmp4 {
+    width: 100%;
+    position: absolute;
+    left: 0px;
+    bottom: 0;
+}
+
+.hamburger-menu {
+    display: none;
+    @include breakpoint (xsm) {
+        display: block;
+    }
+    a {
+        color: white;
+    }
+}
