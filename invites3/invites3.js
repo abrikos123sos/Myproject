@@ -34,3 +34,14 @@ window.onscroll = () => {
         window.scrollTo(0, 0);
     }
 };
+
+/*Форма */
+let name = document.getElementById("input-value");
+let click = document.getElementById("sumbit");
+
+
+click.onclick = function() {
+    if (name.value === null || name.value === "") {
+        alert("Введите данные");
+    } else { alert("Ваше сообщение отправлено:)"); }
+};
