@@ -1,0 +1,1295 @@
+@import url('https://fonts.googleapis.com/css2?family=Kanit:wght@500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+@import 'adapt.scss';
+@import 'adapt.css';
+.blockmp4 {
+    width: 100%;
+    position: absolute;
+    left: 0px;
+    bottom: 0;
+}
+
+#container {
+    animation: glava 1.5s ease-in-out;
+    .particle {
+        position: absolute;
+        border-radius: 50%;
+    }
+    @for $i from 1 through 30 {
+        @keyframes particle-animation-#{$i} {
+            100% {
+                transform: translate3d((random(90) * 1vw), (random(90) * 1vh), (random(100) * 1px));
+            }
+        }
+        .particle:nth-child(#{$i}) {
+            animation: particle-animation-#{$i} 60s infinite;
+            $size: random(10) + 10 + px;
+            opacity: random(100)/100;
+            height: $size;
+            width: $size;
+            animation-delay: -$i * .2s;
+            transform: translate3d((random(90) * 1vw), (random(90) * 1vh), (random(100) * 1px));
+            background: hsl(random(360), 70%, 50%);
+        }
+    }
+    box-sizing: content-box;
+    #scrollShow {
+        position: fixed;
+        cursor: pointer;
+        right: 5%;
+        width: 40px;
+        height: 40px;
+        bottom: 5%;
+        z-index: 20;
+        transition: all 0.5s ease-in-out;
+        &:hover {
+            transform: scale(0.9, 0.9);
+        }
+    }
+    .isShowBtn {
+        opacity: 1;
+    }
+    .isShowBtn_hide {
+        opacity: 0;
+    }
+    box-sizing: border-box;
+    margin: 0 auto;
+    cursor: default;
+    a {
+        text-decoration: none;
+        color: white;
+    }
+    .header-menu {
+        display: grid;
+        grid-template-columns: 1fr 4fr 1fr 1fr 1fr 1fr 1fr 1fr;
+        grid-template-rows: 100px 100px 50px 150px 150px 100px 100px;
+        align-items: center;
+        background: url(image/background.jpg) center;
+        background-size: cover;
+        background-repeat: no-repeat;
+        font-family: 'Kanit', sans-serif;
+        @include breakpoint (xsl) {
+            grid-template-columns: 20px 150px 1fr 1fr 1fr 1fr 1fr 1fr;
+            margin: 0 auto;
+        }
+        @include breakpoint (xsm) {
+            display: flex;
+            flex-direction: column;
+            grid-row-gap: 6px;
+            nav {
+                display: none;
+            }
+        }
+        a {
+            font-size: 15px;
+            font-weight: 500;
+            text-transform: uppercase;
+        }
+        .edem-head {
+            grid-column: 2;
+            z-index: 10;
+        }
+        .home-head {
+            grid-column: 3;
+            justify-self: center;
+            z-index: 10;
+            transition: .2s ease-in-out;
+            &:hover {
+                border-bottom: 2px solid #ff00eb;
+            }
+        }
+        .about_us-head {
+            grid-column: 4;
+            justify-self: center;
+            z-index: 10;
+            transition: .2s ease-in-out;
+            &:hover {
+                border-bottom: 2px solid #ff00eb;
+            }
+        }
+        .gallery-head {
+            grid-column: 5;
+            justify-self: center;
+            z-index: 10;
+            transition: .2s ease-in-out;
+            &:hover {
+                border-bottom: 2px solid #ff00eb;
+            }
+        }
+        .event-head {
+            grid-column: 6;
+            justify-self: center;
+            z-index: 10;
+            transition: .2s ease-in-out;
+            &:hover {
+                border-bottom: 2px solid #ff00eb;
+            }
+        }
+        .news-head {
+            justify-self: center;
+            z-index: 10;
+            transition: .2s ease-in-out;
+            &:hover {
+                border-bottom: 2px solid #ff00eb;
+            }
+        }
+        .contact-head {
+            justify-self: center;
+            transition: .2s ease-in-out;
+            &:hover {
+                border-bottom: 2px solid #ff00eb;
+            }
+        }
+        .title-data {
+            grid-row: 3;
+            grid-column: 2;
+            font-size: 40px;
+            font-weight: 500;
+            color: yellow;
+            text-transform: uppercase;
+            z-index: 10;
+            animation: datatitle 0.7s ease-in-out;
+            @include breakpoint (xl) {
+                grid-column: 2/8;
+                justify-self: center;
+                transition: all 0.5s ease-in-out;
+            }
+            @include breakpoint (xsl) {
+                grid-column: 2/10;
+                justify-self: center;
+                transition: all 0.5s ease-in-out;
+            }
+            @include breakpoint (md) {
+                font-size: 30px;
+            }
+        }
+        .title-pers {
+            grid-row: 4;
+            grid-column: 2;
+            text-transform: uppercase;
+            font-size: 40px;
+            color: white;
+            font-weight: 900;
+            word-spacing: 10px;
+            z-index: 10;
+            animation: perstitle 0.7s ease-in-out;
+            .p1 {
+                background-color: rgb(255, 0, 234);
+                z-index: 10;
+            }
+            @include breakpoint (xl) {
+                grid-column: 2/8;
+                justify-self: center;
+                transition: all 0.5s ease-in-out;
+            }
+            @include breakpoint (xsl) {
+                grid-column: 2/10;
+                justify-self: center;
+                transition: all 0.5s ease-in-out;
+            }
+            @include breakpoint (md) {
+                font-size: 25px;
+            }
+        }
+        .title-desc {
+            grid-row: 5;
+            grid-column: 2/4;
+            font-size: 70px;
+            color: white;
+            text-transform: uppercase;
+            z-index: 10;
+            animation: datatitle 0.7s ease-in-out;
+            @include breakpoint (xl) {
+                grid-column: 2/8;
+                justify-self: center;
+                transition: all 0.5s ease-in-out;
+            }
+            @include breakpoint (xsl) {
+                grid-column: 2/10;
+                justify-self: center;
+                transition: all 0.5s ease-in-out;
+            }
+            @include breakpoint (xmd) {
+                font-size: 60px;
+                justify-self: center;
+                transition: all 0.5s ease-in-out;
+            }
+            @include breakpoint (md) {
+                font-size: 30px;
+            }
+        }
+        .title-descript {
+            grid-row: 6;
+            grid-column: 2;
+            font-size: 17px;
+            color: white;
+            font-weight: 500;
+            z-index: 10;
+            @include breakpoint (xl) {
+                grid-column: 2/8;
+                justify-self: center;
+                text-align: center;
+                transition: all 0.5s ease-in-out;
+            }
+            @include breakpoint (xsl) {
+                grid-column: 2/10;
+                justify-self: center;
+                transition: all 0.5s ease-in-out;
+            }
+        }
+        .button {
+            grid-row: 7;
+            grid-column: 2;
+            text-align: center;
+            @include breakpoint (xl) {
+                grid-column: 2/8;
+                justify-self: center;
+                transition: all 0.5s ease-in-out;
+            }
+            @include breakpoint (xsl) {
+                grid-column: 2/10;
+                justify-self: center;
+                transition: all 0.5s ease-in-out;
+            }
+            &:hover {
+                letter-spacing: 1px;
+            }
+            .btn_1 {
+                background-color: rgb(0, 81, 255);
+                width: 180px;
+                height: 50px;
+                padding-top: 10px;
+                transition: 0.5s ease-in-out;
+                a {
+                    @include breakpoint (md) {
+                        font-size: 10px;
+                    }
+                }
+                @include breakpoint (md) {
+                    width: 140px;
+                    height: 30px;
+                    padding-top: 1px;
+                }
+                &:hover {
+                    background-color: rgb(255, 0, 234);
+                }
+            }
+        }
+        .title-img {
+            grid-row: 3/7;
+            grid-column: 3/5;
+            position: relative;
+            z-index: 1;
+            animation: titleimg 0.8s ease-in-out;
+            img {
+                width: 650px;
+                height: 650px;
+                @include breakpoint (xl) {
+                    display: none;
+                    transition: all 0.5s ease-in-out;
+                }
+            }
+        }
+    }
+    .first-content {
+        display: grid;
+        grid-template-columns: 1fr 4fr 1fr;
+        grid-template-rows: 100px 100px 80px;
+        text-align: center;
+        background-color: black;
+        color: white;
+        align-items: center;
+        font-family: 'Montserrat', sans-serif;
+        @include breakpoint (md) {
+            display: flex;
+            flex-direction: column;
+        }
+        .title-prev {
+            grid-column: 2;
+            font-size: 40px;
+            font-weight: 500;
+            align-self: end;
+            @include breakpoint (md) {
+                font-size: 30px;
+                margin: 0 auto;
+            }
+        }
+        .title-inf {
+            grid-row: 2;
+            grid-column: 2;
+            align-self: center;
+            border-bottom: 2px solid gray;
+        }
+        .title-head {
+            grid-row: 3;
+            grid-column: 2;
+            align-self: end;
+            @include breakpoint (md) {
+                margin: 0 auto
+            }
+            .p3 {
+                font-size: 20px;
+                font-weight: 100;
+            }
+        }
+        .title-head1 {
+            grid-row: 4;
+            grid-column: 2;
+            position: relative;
+            bottom: 50%;
+            left: 50%;
+            width: 20px;
+            color: #00ffcc;
+            margin-left: -10px;
+            font-size: 30px;
+            text-transform: uppercase;
+            font-weight: 100;
+            font-family: 'Roboto', sans-serif;
+            .p4 {
+                grid-row: 4;
+                grid-column: 2;
+                content: "";
+                position: relative;
+                top: 0;
+                left: 50%;
+                margin-left: -50px;
+                border-bottom: 1px solid #00ffcc;
+                width: 100px;
+                height: 1px;
+                text-align: center;
+                @include breakpoint (md) {
+                    display: none;
+                }
+            }
+        }
+    }
+    .content-2 {
+        display: grid;
+        grid-template-columns: repeat(4, auto);
+        grid-template-rows: 20px 700px 10px;
+        grid-column-gap: 25px;
+        box-sizing: content-box;
+        position: relative;
+        @include breakpoint (xl) {
+            background: url(video/backgroundrgbimage.png)center;
+            background-attachment: fixed;
+            background-size: cover;
+        }
+        @include breakpoint (md) {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+        }
+        .video-content {
+            grid-column: 1/6;
+            grid-row: 1/4;
+            position: absolute;
+            width: 100%;
+            z-index: -1;
+            @include breakpoint (md) {
+                display: none;
+            }
+            @include breakpoint (xl) {
+                display: none;
+            }
+        }
+        .slider-img1 {
+            grid-row: 2;
+            grid-column: 2;
+            width: 100%;
+            height: 100%;
+            @include breakpoint (md) {
+                grid-row: 1;
+                grid-column: 1;
+            }
+        }
+        .tickets-menu {
+            display: grid;
+            grid-template-columns: 20px 1fr 1fr 1fr;
+            grid-template-rows: 140px 120px 120px 120px 120px;
+            grid-row: 2;
+            grid-column: 3;
+            background-color: rgb(2, 2, 70);
+            align-items: center;
+            justify-content: space-around;
+            @include breakpoint (md) {
+                display: flex;
+                grid-row: 2;
+                grid-column: 1;
+                width: 100%;
+                flex-direction: column;
+                margin: 0 auto;
+                grid-row-gap: 20px;
+            }
+            .menu_prev {
+                grid-row: 1;
+                grid-column: 2/4;
+                align-self: center;
+                font-weight: var(--e-global-typography-5d167aa-font-weight);
+                font-family: var(--e-global-typography-5d167aa-font-family), Sans-serif;
+                .title_menu {
+                    color: white;
+                    font-size: 40px;
+                    font-weight: 900;
+                }
+                .title_prev {
+                    color: white;
+                    font-size: 18px;
+                    font-weight: bold;
+                }
+            }
+            .content-tickets {
+                display: grid;
+                grid-row: 2;
+                grid-column: 2;
+                align-self: center;
+                justify-self: start;
+            }
+            .maps {
+                width: 10px;
+                height: 10px;
+            }
+            .clock {
+                margin-left: 5%;
+            }
+            .font {
+                font-size: 16px;
+                font-weight: 300;
+                margin-left: 5px;
+                color: white;
+            }
+            .info_1 {
+                color: white;
+                font-weight: bold;
+                font-size: 20px;
+            }
+        }
+        .moth-info {
+            grid-row: 2;
+            grid-column: 3;
+            justify-self: center;
+            align-self: center;
+        }
+        .info_2 {
+            font-size: 16px;
+            color: white;
+            text-align: center;
+        }
+        .get-ticket {
+            grid-row: 2;
+            grid-column: 4;
+            width: 150px;
+            height: 45px;
+            text-align: center;
+            justify-self: center;
+            margin-top: -5%;
+            .btn_ticket {
+                margin-top: 5%;
+            }
+            background: linear-gradient(to left top,
+            #ff00eb,
+            #c958ff,
+            #8e75ff,
+            #5185fe,
+            #128deb);
+            &:hover {
+                background: linear-gradient(to right top, #ff00eb, #c958ff, #8e75ff, #5185fe, #128deb);
+            }
+        }
+        .content-tickets2 {
+            grid-row: 3;
+            grid-column: 2;
+            justify-self: start;
+        }
+        .moth-info2 {
+            grid-row: 3;
+            grid-column: 3;
+            justify-self: center;
+            font-size: var(--e-global-typography-69c152f-font-size)13px;
+        }
+        .get-ticket1 {
+            grid-row: 3;
+            grid-column: 4;
+            width: 150px;
+            height: 45px;
+            text-align: center;
+            justify-self: center;
+            margin-top: -5%;
+            .btn_ticket1 {
+                margin-top: 5%;
+            }
+            background: linear-gradient(to left top,
+            #ff00eb,
+            #c958ff,
+            #8e75ff,
+            #5185fe,
+            #128deb);
+            &:hover {
+                background: linear-gradient(to right top, #ff00eb, #c958ff, #8e75ff, #5185fe, #128deb);
+            }
+        }
+        .content-tickets3 {
+            grid-row: 4;
+            grid-column: 2;
+            justify-self: start;
+        }
+        .moth-info3 {
+            grid-row: 4;
+            grid-column: 3;
+            justify-self: center;
+        }
+        .get-ticket2 {
+            grid-row: 4;
+            grid-column: 4;
+            width: 150px;
+            height: 45px;
+            text-align: center;
+            justify-self: center;
+            margin-top: -5%;
+            .btn_ticket2 {
+                margin-top: 5%;
+            }
+            background: linear-gradient(to left top,
+            #ff00eb,
+            #c958ff,
+            #8e75ff,
+            #5185fe,
+            #128deb);
+            &:hover {
+                background: linear-gradient(to right top, #ff00eb, #c958ff, #8e75ff, #5185fe, #128deb);
+            }
+        }
+        .content-tickets4 {
+            grid-row: 5;
+            grid-column: 2;
+            justify-self: start;
+        }
+        .moth-info4 {
+            grid-row: 5;
+            grid-column: 3;
+            justify-self: center;
+        }
+        .get-ticket4 {
+            grid-row: 5;
+            grid-column: 4;
+            width: 150px;
+            height: 45px;
+            text-align: center;
+            justify-self: center;
+            margin-top: -5%;
+            .btn_ticket4 {
+                margin-top: 5%;
+            }
+            background: linear-gradient(to left top,
+            #ff00eb,
+            #c958ff,
+            #8e75ff,
+            #5185fe,
+            #128deb);
+            &:hover {
+                background: linear-gradient(to right top, #ff00eb, #c958ff, #8e75ff, #5185fe, #128deb);
+            }
+        }
+    }
+}
+
+.services {
+    display: grid;
+    grid-template-columns: 350px 350px 350px;
+    grid-template-rows: 150px 250px 150px;
+    background: url(image/backgroundrgb.jpg) center;
+    background-attachment: fixed;
+    background-size: cover;
+    justify-content: space-around;
+    @include breakpoint (xsl) {
+        display: flex;
+        flex-direction: column;
+    }
+    @include breakpoint (lg) {
+        grid-template-columns: 250px 250px 250px;
+    }
+    .services-title {
+        grid-row: 1;
+        grid-column: 2;
+        justify-self: center;
+        align-self: center;
+        .se-p1 {
+            font-size: var(--e-global-typography-84ca66e-font-size) 15px;
+            text-transform: uppercase;
+            color: #ff00eb;
+            animation: serv 4s ease-in-out infinite;
+        }
+    }
+    .foodquality {
+        grid-row: 2;
+        grid-column: 1;
+        font-family: 'Roboto', sans-serif;
+        position: relative;
+        text-align: center;
+        transition: 0.6s ease-in-out;
+        &:hover {
+            box-shadow: 0 0 10px #ff00eb;
+            margin-top: -10%;
+        }
+        .quality {
+            width: 110px;
+            height: 110px;
+            position: relative;
+        }
+        .foodinfo {
+            color: white;
+            font-weight: bold;
+            position: relative;
+            font-size: 25px;
+        }
+        .qualitiprev {
+            font-size: 16px;
+            color: white;
+            font-weight: 400;
+        }
+    }
+    .bar {
+        grid-row: 2;
+        grid-column: 2;
+        text-align: center;
+        transition: 0.6s ease-in-out;
+        &:hover {
+            box-shadow: 0 0 10px #ff00eb;
+            margin-top: -10%;
+        }
+        .barinfo {
+            color: white;
+            font-weight: bold;
+            position: relative;
+            font-size: 25px;
+        }
+        .barprev {
+            font-size: 16px;
+            color: white;
+            font-weight: 400;
+        }
+    }
+    .restourant {
+        grid-row: 2;
+        grid-column: 3;
+        text-align: center;
+        transition: 0.6s ease-in-out;
+        &:hover {
+            box-shadow: 0 0 10px #ff00eb;
+            margin-top: -10%;
+        }
+        .restinfo {
+            color: white;
+            font-weight: bold;
+            position: relative;
+            font-size: 25px;
+        }
+        .restprev {
+            font-size: 16px;
+            color: white;
+            font-weight: 400;
+        }
+    }
+}
+
+.content-3 {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    grid-template-rows: 150px 150px 350px 80px 100px;
+    justify-content: space-around;
+    grid-column-gap: 20px;
+    background: url(image/back.png) center;
+    background-size: cover;
+    background-attachment: fixed;
+    box-sizing: border-box;
+    @include breakpoint (md) {
+        display: grid;
+        grid-template-columns: 100%;
+        grid-template-rows: 50px 60px 350px 50px 350px 40px 350px 40px 20px;
+        grid-row-gap: 10px;
+    }
+    @include breakpoint (lg) {
+        display: grid;
+        grid-template-columns: 550px;
+        grid-template-rows: 50px 60px 350px 50px 350px 40px 350px 40px 20px;
+        grid-row-gap: 10px;
+    }
+    @include breakpoint (ssm) {
+        display: grid;
+        grid-template-columns: 300px;
+        grid-template-rows: 50px 60px 300px 50px 300px 40px 300px 40px 20px;
+        grid-row-gap: 10px;
+    }
+    .nightmucic {
+        grid-row: 1;
+        grid-column: 2;
+        align-self: end;
+        justify-self: center;
+        font-size: var(--e-global-typography-84ca66e-font-size) 15px;
+        text-transform: uppercase;
+        color: orange;
+        font-weight: bold;
+        animation: serv 4s ease-in-out infinite;
+        @include breakpoint (md) {
+            grid-row: 1;
+            grid-column: 1;
+        }
+        @include breakpoint (lg) {
+            grid-row: 1;
+            grid-column: 1;
+        }
+    }
+    .lastrelease {
+        grid-row: 2;
+        grid-column: 2;
+        align-self: center;
+        justify-self: center;
+        font-size: 30px;
+        color: white;
+        font-weight: bold;
+        text-transform: uppercase;
+        @include breakpoint (md) {
+            font-size: 20px;
+            grid-row: 2;
+            grid-column: 1;
+        }
+        @include breakpoint (lg) {
+            grid-row: 2;
+            grid-column: 1;
+        }
+    }
+    .lxstcentury {
+        grid-row: 3;
+        position: relative;
+        grid-column: 1;
+        background: url(image/lxst.jpg)center;
+        background-size: cover;
+    }
+    .infoartist {
+        padding-top: 50%;
+        padding-left: 10%;
+        position: relative;
+        font-size: 25px;
+        font-weight: bold;
+        color: white;
+        @include breakpoint (md) {
+            padding-top: 30%;
+        }
+        @include breakpoint (ssm) {
+            padding-top: 20%;
+        }
+        @include breakpoint (lg) {
+            padding-top: 35%;
+        }
+    }
+    .asenssia {
+        grid-row: 3;
+        grid-column: 2;
+        background: url(image/assensia.jpg)center;
+        background-size: cover;
+        @include breakpoint (md) {
+            grid-row: 5;
+            grid-column: 1;
+        }
+        @include breakpoint (lg) {
+            grid-row: 5;
+            grid-column: 1;
+        }
+    }
+    .streamon2 {
+        grid-row: 4;
+        grid-column: 3;
+        color: white;
+        font-size: 25px;
+        font-weight: bold;
+        align-self: center;
+        @include breakpoint (md) {
+            grid-row: 6;
+            grid-column: 1;
+        }
+        @include breakpoint (lg) {
+            grid-row: 6;
+            grid-column: 1;
+        }
+        #Spotify {
+            width: 30px;
+            height: 30px;
+            fill: white;
+            transition: 0.5s ease-in-out;
+            &:hover {
+                fill: #ff00eb;
+                transform: scale(1.1, 1.1);
+            }
+        }
+        #youtube {
+            width: 30px;
+            height: 30px;
+            fill: white;
+            transition: 0.5s ease-in-out;
+            &:hover {
+                fill: #ff00eb;
+                transform: scale(1.1, 1.1);
+            }
+        }
+        #soundclound {
+            width: 30px;
+            height: 30px;
+            fill: white;
+            transition: 0.5s ease-in-out;
+            &:hover {
+                fill: #ff00eb;
+                transform: scale(1.1, 1.1);
+            }
+        }
+    }
+    .streamon3 {
+        grid-row: 4;
+        grid-column: 2;
+        color: white;
+        font-size: 25px;
+        font-weight: bold;
+        align-self: center;
+        @include breakpoint (md) {
+            grid-row: 8;
+            grid-column: 1;
+        }
+        @include breakpoint (lg) {
+            grid-row: 8;
+            grid-column: 1;
+        }
+        #Spotify {
+            width: 30px;
+            height: 30px;
+            fill: white;
+            transition: 0.5s ease-in-out;
+            &:hover {
+                fill: #ff00eb;
+                transform: scale(1.1, 1.1);
+            }
+        }
+        #youtube {
+            width: 30px;
+            height: 30px;
+            fill: white;
+            transition: 0.5s ease-in-out;
+            &:hover {
+                fill: #ff00eb;
+                transform: scale(1.1, 1.1);
+            }
+        }
+        #soundclound {
+            width: 30px;
+            height: 30px;
+            fill: white;
+            transition: 0.5s ease-in-out;
+            &:hover {
+                fill: #ff00eb;
+                transform: scale(1.1, 1.1);
+            }
+        }
+    }
+    .streamon {
+        grid-row: 4;
+        grid-column: 1;
+        color: white;
+        font-size: 25px;
+        font-weight: bold;
+        align-self: center;
+        #Spotify {
+            width: 30px;
+            height: 30px;
+            fill: white;
+            transition: 0.5s ease-in-out;
+            &:hover {
+                fill: #ff00eb;
+                transform: scale(1.1, 1.1);
+            }
+        }
+        #youtube {
+            width: 30px;
+            height: 30px;
+            fill: white;
+            transition: 0.5s ease-in-out;
+            &:hover {
+                fill: #ff00eb;
+                transform: scale(1.1, 1.1);
+            }
+        }
+        #soundclound {
+            width: 30px;
+            height: 30px;
+            fill: white;
+            transition: 0.5s ease-in-out;
+            &:hover {
+                fill: #ff00eb;
+                transform: scale(1.1, 1.1);
+            }
+        }
+    }
+    .irradiated {
+        grid-row: 3;
+        grid-column: 3;
+        background: url(image/runaway.jpg)center;
+        background-size: cover;
+        @include breakpoint (md) {
+            grid-row: 7;
+            grid-column: 1;
+        }
+        @include breakpoint (lg) {
+            grid-row: 7;
+            grid-column: 1;
+        }
+    }
+}
+
+.content-4 {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    grid-template-rows: 100px 70px 350px 350px 20px;
+    background-color: black;
+    justify-content: space-around;
+    grid-column-gap: 20px;
+    grid-row-gap: 25px;
+    @include breakpoint (md) {
+        display: flex;
+        flex-direction: column;
+        margin: 0 auto;
+        grid-row-gap: 25px;
+    }
+    .img-class {
+        width: 100%;
+        height: 100%;
+        transition: 0.6s ease-in-out;
+        &:hover {
+            transform: scale(1.2, 1.2);
+        }
+    }
+    .latestphoto {
+        grid-row: 1;
+        grid-column: 2;
+        font-size: 18px;
+        color: orange;
+        text-transform: uppercase;
+        font-weight: bold;
+        align-self: end;
+        text-align: center;
+        @include breakpoint (lg) {
+            margin: 0 auto;
+        }
+    }
+    .party {
+        grid-row: 2;
+        grid-column: 2;
+        color: white;
+        align-self: center;
+        justify-self: center;
+        font-size: 40px;
+        text-transform: uppercase;
+    }
+    .photo-1 {
+        grid-row: 3;
+        grid-column: 1;
+        overflow: hidden;
+        position: relative;
+        &:hover {
+            width: 100%;
+            height: 100%;
+            background: black;
+            opacity: 50%;
+        }
+    }
+    .photo-2 {
+        grid-row: 3;
+        grid-column: 2;
+        overflow: hidden;
+        &:hover {
+            width: 100%;
+            height: 100%;
+            background: black;
+            opacity: 50%;
+        }
+    }
+    .photo-3 {
+        grid-row: 3;
+        grid-column: 3;
+        overflow: hidden;
+        &:hover {
+            width: 100%;
+            height: 100%;
+            background: black;
+            opacity: 50%;
+        }
+    }
+    .photo-4 {
+        grid-row: 4;
+        grid-column: 1;
+        overflow: hidden;
+        &:hover {
+            width: 100%;
+            height: 100%;
+            background: black;
+            opacity: 50%;
+        }
+    }
+    .photo-5 {
+        grid-row: 4;
+        grid-column: 2;
+        overflow: hidden;
+        &:hover {
+            width: 100%;
+            height: 100%;
+            background: black;
+            opacity: 50%;
+        }
+    }
+    .photo-6 {
+        grid-row: 4;
+        grid-column: 3;
+        overflow: hidden;
+        &:hover {
+            width: 100%;
+            height: 100%;
+            background: black;
+            opacity: 50%;
+        }
+    }
+}
+
+.Newsletter {
+    display: grid;
+    position: relative;
+    grid-template-columns: 1fr;
+    grid-template-rows: 250px 100px 300px;
+    box-sizing: border-box;
+    @include breakpoint (md) {
+        grid-template-columns: 100%;
+        grid-template-rows: 100px 100px 200px;
+    }
+    @include breakpoint (sm) {
+        grid-template-columns: 100%;
+        grid-template-rows: 100px 100px 150px;
+    }
+    img {
+        grid-row: 1;
+        position: absolute;
+        width: 100%;
+        height: 100%;
+    }
+    .newlletter-title {
+        position: relative;
+        grid-row: 1;
+        grid-column: 1;
+        justify-self: center;
+        align-self: end;
+        color: white;
+        font-size: 50px;
+        font-weight: var(--e-global-typography-5d167aa-font-weight);
+        font-family: var(--e-global-typography-5d167aa-font-family), Sans-serif;
+    }
+    .subscribe {
+        position: relative;
+        grid-row: 2;
+        grid-column: 1;
+        justify-self: center;
+        align-self: start;
+        font-size: 25px;
+        text-align: center;
+        color: white;
+        font-weight: bold;
+        @include breakpoint (md) {
+            font-size: 15px;
+        }
+    }
+    .form {
+        grid-row: 3;
+        grid-column: 1/auto;
+        position: relative;
+        justify-self: center;
+        @include breakpoint (md) {
+            margin: 0 auto;
+        }
+        #input-value {
+            width: 600px;
+            height: 50px;
+            transition: 0.6s ease-in-out;
+            &:hover {
+                box-shadow: 0px 0px 0px 10px #ff00eb;
+            }
+            @include breakpoint (md) {
+                width: 100%;
+            }
+        }
+        #sumbit {
+            width: 150px;
+            height: 50px;
+            color: white;
+            font-weight: 500;
+            border: none;
+            position: relative;
+            margin-left: -4px;
+            &:after {
+                position: absolute;
+                top: 14px;
+                left: 25px;
+                content: ' ✉️';
+            }
+            background: linear-gradient(to left top,
+            #ff00eb,
+            #c958ff,
+            #8e75ff,
+            #5185fe,
+            #128deb);
+            &:hover {
+                background: linear-gradient(to right top, #ff00eb, #c958ff, #8e75ff, #5185fe, #128deb);
+            }
+        }
+    }
+}
+
+.footer {
+    position: relative;
+    background-color: black;
+    display: grid;
+    grid-template-rows: 70px;
+    background-color: #100726;
+    align-items: center;
+    font-family: 'Kanit', sans-serif;
+    border-top: 2px solid gray;
+    @include breakpoint (md) {
+        display: flex;
+        flex-direction: column-reverse;
+        grid-row-gap: 25px;
+    }
+    .logo-bottom {
+        justify-self: center;
+        @include breakpoint (ssm) {
+            display: none;
+        }
+        @include breakpoint (md) {
+            display: none;
+        }
+    }
+    .text-footer {
+        grid-row: 1;
+        grid-column: 3;
+        text-align: center;
+        font-size: 18px;
+        color: white;
+        font-weight: 300;
+    }
+    .logo-footer {
+        text-align: center;
+    }
+    #youtube {
+        width: 20px;
+        height: 20px;
+        fill: white;
+        margin-left: 15px;
+        transition: all 0.5s ease-in-out;
+        &:hover {
+            fill: #ff00eb;
+            transform: scale(1.2, 1.2);
+        }
+    }
+    #soundclound {
+        width: 20px;
+        height: 20px;
+        fill: white;
+        margin-left: 15px;
+        transition: all 0.5s ease-in-out;
+        &:hover {
+            fill: #ff00eb;
+            transform: scale(1.2, 1.2);
+        }
+    }
+    #Spotify {
+        width: 20px;
+        height: 20px;
+        fill: white;
+        margin-left: 15px;
+        transition: all 0.5s ease-in-out;
+        &:hover {
+            fill: #ff00eb;
+            transform: scale(1.2, 1.2);
+        }
+    }
+    #dribble {
+        width: 20px;
+        height: 20px;
+        fill: white;
+        transition: all 0.5s ease-in-out;
+        &:hover {
+            fill: #ff00eb;
+            transform: scale(1.2, 1.2);
+        }
+    }
+    .title-text {
+        grid-row: 2;
+        grid-column: 1/9;
+    }
+}
+
+@keyframes datatitle {
+    0% {
+        margin-left: -25px;
+        opacity: 0;
+    }
+    100% {
+        left: 25px;
+        opacity: 1;
+    }
+}
+
+@keyframes perstitle {
+    0% {
+        margin-left: 35px;
+        opacity: 0;
+    }
+    100% {
+        margin-left: -15px;
+        opacity: 1;
+    }
+}
+
+@keyframes titleimg {
+    0% {
+        margin-bottom: 25px;
+        opacity: 0;
+    }
+    100% {
+        margin-bottom: -25px;
+        opacity: 1;
+    }
+}
+
+@keyframes serv {
+    0% {
+        text-shadow: 0 0 10px #ff00eb;
+    }
+    100% {
+        text-shadow: none;
+    }
+}
+
+@keyframes glava {
+    0% {
+        filter: grayscale(100%);
+    }
+    100% {
+        filter: grayscale(0);
+    }
+}
+
+.menu__btn {
+    z-index: 400;
+}
+
+.hamburger-menu {
+    display: none;
+    @include breakpoint (xsm) {
+        display: block;
+    }
+    a {
+        color: white;
+    }
+}
